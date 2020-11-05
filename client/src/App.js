@@ -26,7 +26,29 @@ const firestore = firebase.firestore();
 function App() {
   return (
     <div>
+      <header>
+        <h1>React Firebase Calculator</h1>
+      </header>
 
+      <main className="row">
+        <section className="col-md-6">
+          <div className="jumbotron">
+            
+            <div className="row">
+              {/* calculations and result display will go here */}
+            </div>
+          </div>
+          <div className="row">
+            <div className="numbers col-8">
+              {/* Button components for numbers will go here */}
+            </div>
+            <div className="operators col-8">
+              {/* Button components for operators will go here */}
+            </div>
+
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
