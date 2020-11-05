@@ -107,17 +107,17 @@ function App() {
     <div className="body">
       <div className="fade-overlay"></div>
       <div className="wrapper">
-        <header className="section col-md-7 calc-center pt-2 pb-2">
+        <header className="section col-md-7 calc-center pt-2">
           <h1 className="text-center">React Firebase Calculator</h1>
         </header>
 
         <main className="row">
 
-          <section className="section col-md-7 pt-4 pb-4 calc-center">
+          <section className="section col-md-7 pt-2 pb-1 calc-center">
             <div className="jumbotron">
               <div className="row">
                 {/* calculations and result display will go here */}
-                <div className="col-8">
+                <div className="col-8 jumbo-display">
                   {firstNum} {operator} {secondNum} {result}
                 </div>
               </div>
@@ -151,9 +151,11 @@ function App() {
             </div>
           </section>
 
-          <section className="section col-md-7 text-center pt-4 pb-4 calc-center">
+          <section className="section col-md-7 text-center pt-2 pb-4 calc-center">
             <h2>Equation History</h2>
-            {history && history.reverse().map(equation => <HistoryItem key={equation.id} text={equation.equation} date={equation.createdAt} />)}
+            <div className="history">
+              {history && history.reverse().map(equation => <HistoryItem key={equation.id} text={equation.equation} date={equation.createdAt} />)}
+            </div>
           </section>
 
         </main>
