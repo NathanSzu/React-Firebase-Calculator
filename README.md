@@ -1,7 +1,10 @@
 # React Firebase Calculator
   ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
   ## Description
-  An application that utilizes React, Firebase's Firestore database, and the Bootstrap framework to allow users to perfomr basic mathematical calculations.
+  An application that utilizes React, Firebase's Firestore database, and the Bootstrap framework to allow users to perform basic mathematical calculations.
+
+  Live application can be found at <a href='https://react-firebase-calculator.herokuapp.com/'>https://react-firebase-calculator.herokuapp.com/</a>
+
   ## Table of Contents
 
   <a href='#Installation'>Installation</a>
