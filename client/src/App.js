@@ -30,6 +30,21 @@ function App() {
   const [operator, setOperator] = useState("");
   const [result, setResult] = useState("");
 
+  // Firesbase collection reference
+  const equationHistoryRef = firestore.collection("equation-history");
+  // Query to return the most recent equations
+  const query = equationHistoryRef.orderBy('createdAt').limitToLast(10);
+  // State to hold the returned 10 history items to be mapped
+  const [history] = useCollectionData(query, { idField: 'id' });
+
+  // Function to write equations to the firebase "history" collection
+  const saveToHistory = async (answer) => {
+    await equationHistoryRef.add({
+      equation: `${firstNum} ${operator} ${secondNum} = ${answer}`,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+  }
+
   // Function to add digits to firstNum unless and operator has already been clicked
   const handleNumberClick = (e) => {
     if (operator === "" && result === "") {
@@ -76,6 +91,7 @@ function App() {
         setResult(answer)
       }
       console.log(`${firstNum} ${operator} ${secondNum} = ${answer.toString()}`)
+      saveToHistory(answer)
       handleResult()
     }
   }
@@ -102,7 +118,7 @@ function App() {
                 {firstNum} {operator} {secondNum} {result}
               </div>
               <div className="col-4">
-
+                
               </div>
             </div>
           </div>
