@@ -59,6 +59,33 @@ function App() {
     }
   }
 
+  const handleCalculation = () => {
+    var answer;
+    if (operator) {
+      if (operator === "+") {
+        answer = Number(firstNum) + Number(secondNum);
+        setResult(answer)
+      } else if (operator === "-") {
+        answer = Number(firstNum) - Number(secondNum);
+        setResult(answer)
+      } else if (operator === "*") {
+        answer = Number(firstNum) * Number(secondNum);
+        setResult(answer)
+      } else if (operator === "/") {
+        answer = Number(firstNum) / Number(secondNum);
+        setResult(answer)
+      }
+      console.log(`${firstNum} ${operator} ${secondNum} = ${answer.toString()}`)
+      handleResult()
+    }
+  }
+
+  const handleResult = () => {
+    setOperator("");
+    setFirstNum("");
+    setSecondNum("");
+  }
+
   return (
     <div>
       <header>
@@ -103,7 +130,7 @@ function App() {
               <Button onClick={handleOperatorClick} text={"-"} value={"-"} />
               <Button onClick={handleOperatorClick} text={"*"} value={"*"} />
               <Button onClick={handleOperatorClick} text={"/"} value={"/"} />
-              <Button text={"="} value={"="} />
+              <Button onClick={handleCalculation} text={"="} value={"="} />
             </div>
 
           </div>
