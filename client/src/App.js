@@ -30,6 +30,7 @@ function App() {
   const [operator, setOperator] = useState("");
   const [result, setResult] = useState("");
 
+  // Function to add digits to firstNum unless and operator has already been clicked
   const handleNumberClick = (e) => {
     if (operator === "" && result === "") {
       setFirstNum(firstNum + e.target.value)
@@ -39,6 +40,13 @@ function App() {
     } else {
       setSecondNum(secondNum + e.target.value)
     }
+  }
+
+  const handleClear = () => {
+    setOperator("");
+    setFirstNum("");
+    setSecondNum("");
+    setResult("");
   }
 
   return (
@@ -76,7 +84,7 @@ function App() {
               <Button onClick={handleNumberClick} text={"2"} value={"2"} />
               <Button onClick={handleNumberClick} text={"3"} value={"3"} />
               <Button onClick={handleNumberClick} className="zero" text={"0"} />
-              <Button className="clear" text={"Clear"} />
+              <Button onClick={handleClear} className="clear" text={"Clear"} />
             </div>
 
             <div className="operators col-4">
