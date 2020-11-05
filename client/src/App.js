@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import Button from './components/Button'
+import HistoryItem from './components/HistoryItem'
 
 // Importing firebase SDK
 import firebase from 'firebase/app';
@@ -118,7 +119,7 @@ function App() {
                 {firstNum} {operator} {secondNum} {result}
               </div>
               <div className="col-4">
-                
+                {history && history.map(equation => <HistoryItem key={equation.id} text={equation.equation} date={equation.createdAt} />)}
               </div>
             </div>
           </div>
