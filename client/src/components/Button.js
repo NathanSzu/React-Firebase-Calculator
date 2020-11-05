@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Button() {
+export default function Button({ text }) {
     return (
-        <div>
-            
-        </div>
+        <button>
+            {text}
+        </button>
     )
 }

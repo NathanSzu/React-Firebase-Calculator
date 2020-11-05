@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css';
+import Button from './components/Button'
 
 // Importing firebase SDK
 import firebase from 'firebase/app';
@@ -41,9 +42,23 @@ function App() {
           <div className="row">
             <div className="numbers col-8">
               {/* Button components for numbers will go here */}
+              <Button text={"7"} />
+              <Button text={"8"} />
+              <Button text={"9"} />
+              <Button text={"4"} />
+              <Button text={"5"} />
+              <Button text={"6"} />
+              <Button text={"1"} />
+              <Button text={"2"} />
+              <Button text={"3"} />
             </div>
-            <div className="operators col-8">
+            <div className="operators col-4">
               {/* Button components for operators will go here */}
+              <Button text={"+"} />
+              <Button text={"-"} />
+              <Button text={"*"} />
+              <Button text={"/"} />
+              <Button text={"="} />
             </div>
 
           </div>

@@ -1,0 +1,10 @@
+.numbers {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: blue; */
+}
+
+.operators {
+  display: grid;
+  /* background-color: blue; */
+}
