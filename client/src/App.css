@@ -14,3 +14,7 @@
 .clear {
   grid-column: 3/4;
 }
+
+.calc-center {
+  margin: 0 auto;
+}

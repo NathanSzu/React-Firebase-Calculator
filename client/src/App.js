@@ -25,21 +25,34 @@ firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
 function App() {
+  const [firstNum, setFirstNum] = useState("");
+  const [secondNum, setSecondNum] = useState("");
+  const [operator, setOperator] = useState("");
+  const [result, setResult] = useState("");
+
   return (
     <div>
       <header>
-        <h1>React Firebase Calculator</h1>
+        <h1 className="text-center">React Firebase Calculator</h1>
       </header>
 
       <main className="row">
-        <section className="col-md-6">
+        <section className="col-md-6 calc-center">
+
           <div className="jumbotron">
-            
             <div className="row">
               {/* calculations and result display will go here */}
+              <div className="col-8">
+                {firstNum} {operator} {secondNum} {result}
+              </div>
+              <div className="col-4">
+
+              </div>
             </div>
           </div>
+
           <div className="row">
+
             <div className="numbers col-8">
               {/* Button components for numbers will go here */}
               <Button text={"7"} />
@@ -54,6 +67,7 @@ function App() {
               <Button className="zero" text={"0"} />
               <Button className="clear" text={"Clear"} />
             </div>
+
             <div className="operators col-4">
               {/* Button components for operators will go here */}
               <Button text={"+"} />
