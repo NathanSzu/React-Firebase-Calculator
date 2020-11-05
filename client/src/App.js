@@ -104,55 +104,60 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
-        <h1 className="text-center">React Firebase Calculator</h1>
-      </header>
+    <div className="body">
+      <div className="fade-overlay"></div>
+      <div className="wrapper">
+        <header className="section col-md-7 calc-center pt-2 pb-2">
+          <h1 className="text-center">React Firebase Calculator</h1>
+        </header>
 
-      <main className="row">
-        <section className="col-md-6 calc-center">
+        <main className="row">
 
-          <div className="jumbotron">
+          <section className="section col-md-7 pt-4 pb-4 calc-center">
+            <div className="jumbotron">
+              <div className="row">
+                {/* calculations and result display will go here */}
+                <div className="col-8">
+                  {firstNum} {operator} {secondNum} {result}
+                </div>
+              </div>
+            </div>
+
             <div className="row">
-              {/* calculations and result display will go here */}
-              <div className="col-8">
-                {firstNum} {operator} {secondNum} {result}
+
+              <div className="numbers col-8">
+                {/* Button components for numbers will go here */}
+                <Button onClick={handleNumberClick} text={"7"} value={"7"} />
+                <Button onClick={handleNumberClick} text={"8"} value={"8"} />
+                <Button onClick={handleNumberClick} text={"9"} value={"9"} />
+                <Button onClick={handleNumberClick} text={"4"} value={"4"} />
+                <Button onClick={handleNumberClick} text={"5"} value={"5"} />
+                <Button onClick={handleNumberClick} text={"6"} value={"6"} />
+                <Button onClick={handleNumberClick} text={"1"} value={"1"} />
+                <Button onClick={handleNumberClick} text={"2"} value={"2"} />
+                <Button onClick={handleNumberClick} text={"3"} value={"3"} />
+                <Button onClick={handleNumberClick} className="zero" text={"0"} />
+                <Button onClick={handleClear} className="clear" text={"Clear"} />
               </div>
-              <div className="col-4">
-                {history && history.map(equation => <HistoryItem key={equation.id} text={equation.equation} date={equation.createdAt} />)}
+
+              <div className="operators col-4">
+                {/* Button components for operators will go here */}
+                <Button onClick={handleOperatorClick} text={"+"} value={"+"} />
+                <Button onClick={handleOperatorClick} text={"-"} value={"-"} />
+                <Button onClick={handleOperatorClick} text={"*"} value={"*"} />
+                <Button onClick={handleOperatorClick} text={"/"} value={"/"} />
+                <Button onClick={handleCalculation} text={"="} value={"="} />
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="row">
+          <section className="section col-md-7 text-center pt-4 pb-4 calc-center">
+            <h2>Equation History</h2>
+            {history && history.reverse().map(equation => <HistoryItem key={equation.id} text={equation.equation} date={equation.createdAt} />)}
+          </section>
 
-            <div className="numbers col-8">
-              {/* Button components for numbers will go here */}
-              <Button onClick={handleNumberClick} text={"7"} value={"7"} />
-              <Button onClick={handleNumberClick} text={"8"} value={"8"} />
-              <Button onClick={handleNumberClick} text={"9"} value={"9"} />
-              <Button onClick={handleNumberClick} text={"4"} value={"4"} />
-              <Button onClick={handleNumberClick} text={"5"} value={"5"} />
-              <Button onClick={handleNumberClick} text={"6"} value={"6"} />
-              <Button onClick={handleNumberClick} text={"1"} value={"1"} />
-              <Button onClick={handleNumberClick} text={"2"} value={"2"} />
-              <Button onClick={handleNumberClick} text={"3"} value={"3"} />
-              <Button onClick={handleNumberClick} className="zero" text={"0"} />
-              <Button onClick={handleClear} className="clear" text={"Clear"} />
-            </div>
-
-            <div className="operators col-4">
-              {/* Button components for operators will go here */}
-              <Button onClick={handleOperatorClick} text={"+"} value={"+"} />
-              <Button onClick={handleOperatorClick} text={"-"} value={"-"} />
-              <Button onClick={handleOperatorClick} text={"*"} value={"*"} />
-              <Button onClick={handleOperatorClick} text={"/"} value={"/"} />
-              <Button onClick={handleCalculation} text={"="} value={"="} />
-            </div>
-
-          </div>
-        </section>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
