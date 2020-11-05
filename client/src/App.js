@@ -49,6 +49,16 @@ function App() {
     setResult("");
   }
 
+  const handleOperatorClick = (e) => {
+    if (firstNum !== "") {
+      setOperator(e.target.value)
+    } else if (firstNum === "" && result !== "") {
+      setFirstNum(result)
+      setResult("")
+      setOperator(e.target.value)
+    }
+  }
+
   return (
     <div>
       <header>
@@ -89,11 +99,11 @@ function App() {
 
             <div className="operators col-4">
               {/* Button components for operators will go here */}
-              <Button text={"+"} />
-              <Button text={"-"} />
-              <Button text={"*"} />
-              <Button text={"/"} />
-              <Button text={"="} />
+              <Button onClick={handleOperatorClick} text={"+"} value={"+"} />
+              <Button onClick={handleOperatorClick} text={"-"} value={"-"} />
+              <Button onClick={handleOperatorClick} text={"*"} value={"*"} />
+              <Button onClick={handleOperatorClick} text={"/"} value={"/"} />
+              <Button text={"="} value={"="} />
             </div>
 
           </div>
