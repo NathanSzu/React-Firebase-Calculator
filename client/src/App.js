@@ -30,6 +30,17 @@ function App() {
   const [operator, setOperator] = useState("");
   const [result, setResult] = useState("");
 
+  const handleNumberClick = (e) => {
+    if (operator === "" && result === "") {
+      setFirstNum(firstNum + e.target.value)
+    } else if (operator === "" && result !== "") {
+      setResult("")
+      setFirstNum(firstNum + e.target.value)
+    } else {
+      setSecondNum(secondNum + e.target.value)
+    }
+  }
+
   return (
     <div>
       <header>
@@ -55,16 +66,16 @@ function App() {
 
             <div className="numbers col-8">
               {/* Button components for numbers will go here */}
-              <Button text={"7"} />
-              <Button text={"8"} />
-              <Button text={"9"} />
-              <Button text={"4"} />
-              <Button text={"5"} />
-              <Button text={"6"} />
-              <Button text={"1"} />
-              <Button text={"2"} />
-              <Button text={"3"} />
-              <Button className="zero" text={"0"} />
+              <Button onClick={handleNumberClick} text={"7"} value={"7"} />
+              <Button onClick={handleNumberClick} text={"8"} value={"8"} />
+              <Button onClick={handleNumberClick} text={"9"} value={"9"} />
+              <Button onClick={handleNumberClick} text={"4"} value={"4"} />
+              <Button onClick={handleNumberClick} text={"5"} value={"5"} />
+              <Button onClick={handleNumberClick} text={"6"} value={"6"} />
+              <Button onClick={handleNumberClick} text={"1"} value={"1"} />
+              <Button onClick={handleNumberClick} text={"2"} value={"2"} />
+              <Button onClick={handleNumberClick} text={"3"} value={"3"} />
+              <Button onClick={handleNumberClick} className="zero" text={"0"} />
               <Button className="clear" text={"Clear"} />
             </div>
 
