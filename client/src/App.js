@@ -49,12 +49,23 @@ function App() {
   // Function to add digits to firstNum unless and operator has already been clicked
   const handleNumberClick = (e) => {
     if (operator === "" && result === "") {
-      setFirstNum(firstNum + e.target.value)
+      if (firstNum.includes(".") && e.target.value === ".") {
+
+      } else {
+        setFirstNum(firstNum + e.target.value)
+      }
     } else if (operator === "" && result !== "") {
       setResult("")
-      setFirstNum(firstNum + e.target.value)
+      if (firstNum.includes(".") && e.target.value === ".") {
+
+      } else {
+        setFirstNum(firstNum + e.target.value)
+      }
     } else {
-      setSecondNum(secondNum + e.target.value)
+      if (secondNum.includes(".") && e.target.value === ".") {
+      } else {
+        setSecondNum(secondNum + e.target.value)
+      }
     }
   }
 
@@ -136,16 +147,17 @@ function App() {
                 <Button onClick={handleNumberClick} text={"1"} value={"1"} />
                 <Button onClick={handleNumberClick} text={"2"} value={"2"} />
                 <Button onClick={handleNumberClick} text={"3"} value={"3"} />
-                <Button onClick={handleNumberClick} className="zero" text={"0"} />
-                <Button onClick={handleClear} className="clear" text={"Clear"} />
+                <Button onClick={handleNumberClick} text={"0"} value={"0"} />
+                <Button onClick={handleNumberClick} text={"."} value={"."} />
+                <Button onClick={handleClear} text={"Clear"} />
               </div>
 
               <div className="operators col-4">
                 {/* Button components for operators will go here */}
-                <Button onClick={handleOperatorClick} text={"+"} value={"+"} />
-                <Button onClick={handleOperatorClick} text={"-"} value={"-"} />
-                <Button onClick={handleOperatorClick} text={"*"} value={"*"} />
                 <Button onClick={handleOperatorClick} text={"/"} value={"/"} />
+                <Button onClick={handleOperatorClick} text={"*"} value={"*"} />
+                <Button onClick={handleOperatorClick} text={"-"} value={"-"} />
+                <Button onClick={handleOperatorClick} text={"+"} value={"+"} />
                 <Button onClick={handleCalculation} text={"="} value={"="} />
               </div>
             </div>
