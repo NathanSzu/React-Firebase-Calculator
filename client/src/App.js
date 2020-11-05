@@ -51,6 +51,8 @@ function App() {
               <Button text={"1"} />
               <Button text={"2"} />
               <Button text={"3"} />
+              <Button className="zero" text={"0"} />
+              <Button className="clear" text={"Clear"} />
             </div>
             <div className="operators col-4">
               {/* Button components for operators will go here */}
